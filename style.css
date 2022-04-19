@@ -47,6 +47,7 @@ body{
     width: 100%;
     min-height: 100vh; 
     box-sizing: border-box;
+    background-color: #efeddc;
 }
 
 .header{
@@ -59,7 +60,7 @@ body{
     font-size: 18px;
     position:sticky;
     top:0;
-    box-shadow: 0 6px 4px -6px #737373;
+    box-shadow: 0 6px 3px -6px #737373;
 }
 
 .logo{
@@ -99,4 +100,23 @@ img[src*=avatar]{
     margin-left: 10px;
     max-width: 30px;
     max-height: 30px;
+}
+
+/***** Main Content *****/
+
+
+.parent{
+    margin:20px 150px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr );
+    grid-template-columns: repeat(auto-fit,390px);
+    gap: 20px;
+}
+
+.card{
+    background-color: white;
+    border:1px solid #737373;
+    border-radius: 10px; 
+    padding: 70px;
+    font-size:20px;
 }
