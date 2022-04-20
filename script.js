@@ -81,3 +81,5 @@ overlay.addEventListener('click',() => {
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
+
+/** JS Validations - not yet */

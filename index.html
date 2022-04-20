@@ -28,25 +28,26 @@
   <!------ Main Body ------>
   <div class="parent"></div>
   
-  <button  data-modal-target="#modal" class="addBook">&#43;</button> <!-- data attributes -->
-  <div class="modal" id="modal">
+  <button  data-modal-target="#modal" class="addBook">&#43;</button> <!-- data attributes + symbols that display the same everywhere -->
+  <div class="modal" id="modal">                                     <!-- data attribute for JS , class for CSS -->
     <div class="headerModal">
       <div class="titleModal">Add New Book</div>
       <button data-close-button class="close-button">&times;</button> <!-- data attributes  + symbols that display the same everywhere-->
-    </div>
-    <form action="" method="post"> <!-- modal's body -->
+    </div>                                                            <!-- data attribute for JS , class for CSS -->
+    <form action="" method="post"> 
         <label for="title">Book title</label>
         <input type="text" id="title" placeholder="Title">
         <label for="author">Book author</label>
         <input type="text" id="author" placeholder="Author">
-        <label for="author">Book author</label>
-        <input type="text" id="pages" placeholder="Author">
+        <label for="pages">Number of pages</label>
+        <input type="text" id="pages" placeholder="Number of pages">
+        <label for="readStatus">Book status</label>
         <select id="readStatus">
           <option value="undefined" selected disabled>Did you read this book?</option>
           <option value="read">read</option>
           <option value="unread">unread</option>
         </select>
-        <button type="button" class="submitButton">add</button>
+        <button type="button" class="submitButton">add</button> <!-- class for JS , type for CSS-->
     </form>
   </div>
   <div id="overlay"></div>
