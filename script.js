@@ -8,14 +8,29 @@ function Book(title,author,pages,readStatus){
 }
 
 Book.prototype.info = function(){
-  const parent = document.querySelector('.parent');
+  const library = document.querySelector('.library');
   let bookCard = document.createElement('button');
-  parent.appendChild(bookCard).className = 'card';
-  bookCard.textContent = `${this.title} by ${this.author}, ${this.pages} pages, ${this.readStatus}` 
+  library.appendChild(bookCard).className = 'card';
+
+  let titleDiv = document.createElement('div');
+  bookCard.appendChild(titleDiv).className = 'bookInfo';
+  titleDiv.innerText = `${this.title}`
+  
+  let authorDiv = document.createElement('div');
+  bookCard.appendChild(authorDiv).className = 'bookInfo';
+  authorDiv.innerText = `Author: ${this.author}`
+
+  let pagesDiv = document.createElement('div');
+  bookCard.appendChild(pagesDiv).className = 'bookInfo';
+  pagesDiv.innerText = `Pages: ${this.pages}`
+  
+  let statusDiv = document.createElement('div');
+  bookCard.appendChild(statusDiv).className = 'bookInfo';
+  statusDiv.innerText = `Status: ${this.readStatus}`
 }
 
 function defaultBook(){
-  const book = new Book('The Almanack of Naval Ravikant:A Guide to Wealth and Happiness','Eric Jorgenson','244','read');
+  const book = new Book('The Almanack of Naval Ravikant: A Guide to Wealth and Happiness','Eric Jorgenson','244','read');
   myLibrary.push(book);
   return book.info(); 
 }

@@ -60,7 +60,7 @@ body{
     justify-content: center; 
     padding: 5px 70px;
     background-color: #e9e5cd;
-    color: #b6732f;
+    color: #4d4d4d;
     font-size: 18px;
     position:sticky;
     top:0;
@@ -75,12 +75,12 @@ body{
 
 span{
     font-weight: bold;
-    color: #b6732f;
+    color: #4d4d4d;
 
 }
 
 a[href*=stanimirkosev]{    
-    color: #b6732f;
+    color: #4d4d4d;
     text-decoration: none;
     margin-right: 20px;
 }
@@ -109,30 +109,39 @@ img[src*=avatar]{
 
 /***** Main Content *****/
 
-.parent{
+.library{
     margin:20px 150px;
     display: grid;
     grid-template-rows: repeat(2, 1fr );
     grid-template-columns: repeat(auto-fit,390px);
-    gap: 20px;
+    gap: 30px;
 }
 
 .card{
-    background-color: white;
+    background-image: linear-gradient(to bottom right, #403B4A,#E7E9BB);
     border:1px solid #737373;
     border-radius: 10px; 
-    padding: 70px;
+    width: 400px;
+    height: 270px;
     font-size:20px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.bookInfo{
+  margin-bottom: 15px;
 }
 
 .addBook{
     background-color: white;
+    color: #737373;
     border:1px solid #737373;
     height: 90px;
     width: 90px;
     border-radius: 50%;
     font-size: 50px;
-    color: #737373;
     position: fixed;
     bottom: 25px;
     right: 25px;
@@ -141,7 +150,7 @@ img[src*=avatar]{
 
 button[type*=button]:hover,
 .addBook:hover{
-    background-color: rgb(0, 0, 0 , 0.1);
+    background-color: rgba(0,0,0,0.1)
 }
 
 .modal{
