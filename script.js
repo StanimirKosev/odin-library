@@ -24,9 +24,17 @@ Book.prototype.info = function(){
   bookCard.appendChild(pagesDiv).className = 'bookInfo';
   pagesDiv.innerText = `Pages: ${this.pages}`
   
-  let statusDiv = document.createElement('div');
+  /*let statusDiv = document.createElement('div');
   bookCard.appendChild(statusDiv).className = 'bookInfo';
-  statusDiv.innerText = `Status: ${this.readStatus}`
+  statusDiv.innerText = `Status: ${this.readStatus}`*/
+
+  let closeBook = document.createElement('button');
+  bookCard.appendChild(closeBook).className = 'closeBook';
+  closeBook.innerText = 'Remove'
+
+  let statusBook = document.createElement('button');
+  bookCard.appendChild(statusBook).className = 'statusBook';
+  statusBook.innerText = 'Status'
 }
 
 function defaultBook(){

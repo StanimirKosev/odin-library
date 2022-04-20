@@ -128,10 +128,33 @@ img[src*=avatar]{
     flex-direction: column;
     padding: 50px;
     overflow: hidden;
+    position: relative;
 }
 
 .bookInfo{
   margin-bottom: 15px;
+}
+
+.statusBook,
+.closeBook{
+   width: 40%;
+   padding: 8px;
+   font-size: 16px;
+   border-radius: 5px;
+   border: 1px solid #737373;
+   color: #737373;
+}
+
+.statusBook{
+    position: absolute;
+    left: 30px;
+    bottom: 13px;
+}
+
+.closeBook{
+    position: absolute;
+    right: 30px;
+    bottom: 13px;
 }
 
 .addBook{
