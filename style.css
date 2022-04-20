@@ -60,7 +60,7 @@ body{
     justify-content: center; 
     padding: 5px 70px;
     background-color: #e9e5cd;
-    color: #463106;
+    color: #b6732f;
     font-size: 18px;
     position:sticky;
     top:0;
@@ -75,11 +75,12 @@ body{
 
 span{
     font-weight: bold;
-    color: #463106;
+    color: #b6732f;
+
 }
 
 a[href*=stanimirkosev]{    
-    color: #463106;
+    color: #b6732f;
     text-decoration: none;
     margin-right: 20px;
 }
@@ -192,11 +193,13 @@ form[method*=post]{
     flex-direction: column;
     margin:0px 40px;
     font-size: 18px;
+    position: relative;
 }
 
 select,
-input[type*=text],
-button[type*=button]{
+.clearButton,
+.submitButton,
+input[type*=text]{
     border:1px solid #737373;
     border-radius: 3px; 
     padding: 10px;
@@ -205,14 +208,22 @@ button[type*=button]{
     font-size: 16px;
 }
 
-button[type*=button],
 select{
     background-color: white;
     width: 100%;
 }
 
-button[type*=button]{
+.clearButton,
+.submitButton{
+    background-color: white;
     color: #737373;
+    width: 50%;
+}
+
+.clearButton{
+    position: absolute;
+    right: 0;
+    bottom: 0;
     width: 40%;
 }
 

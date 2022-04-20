@@ -33,7 +33,15 @@ document.querySelector('.submitButton').onclick = function(){
   let pages = document.getElementById('pages').value;
   let readStatus = document.getElementById('readStatus').value;
   addBookToLibrary(title,author,pages,readStatus);
+  clearFields();
   closeModal(modal);
+}
+
+function clearFields(){
+    let title = document.getElementById('title').value = '';
+    let author = document.getElementById('author').value = '';
+    let pages = document.getElementById('pages').value = '';
+    let readStatus = document.getElementById('readStatus').value = Selection[1];
 }
 
 /********** Modal ***********/
