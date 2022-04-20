@@ -48,6 +48,7 @@ body{
     min-height: 100vh; 
     box-sizing: border-box;
     background-color: #efeddc;
+    position: relative;
 }
 
 .header{
@@ -120,3 +121,75 @@ img[src*=avatar]{
     padding: 70px;
     font-size:20px;
 }
+
+.addBook{
+    background-color: white;
+    border:1px solid #737373;
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #737373;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    box-shadow: 6px 5px 4px -3px #737373;
+}
+
+.addBook:hover{
+    background-color: rgb(0, 0, 0 , 0.1);
+}
+
+.modal{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0); /** centering + removing the element with scale*/
+    transition: 200ms ease-in-out; /** slow start and end */
+    border:1px solid white;
+    border-radius: 6px; 
+    z-index: 10;    /**specifies the stack order of an element ; greatest value is in front*/
+    background-color: white;
+    width: 400px;
+    height: 500px;
+    max-height: 50%;
+    max-width: 40%;
+    padding: 20px;
+}
+
+.modal.active{ 
+    transform: translate(-50%,-50%) scale(1);
+}
+
+.headerModal{
+    display: flex;
+    justify-content:space-between;
+    align-content: center;
+}
+
+.headerModal .close-button{
+    cursor: pointer; 
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0,0.5);
+    pointer-events: none;
+}
+
+#overlay.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
