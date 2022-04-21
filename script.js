@@ -11,9 +11,10 @@ Book.prototype.info = function(){
   const library = document.querySelector('.library'); 
   let bookCard = document.createElement('button');  /* dom element to be removed */
   library.appendChild(bookCard).className = 'card';
+  
   for ( let i = 0 ; i < myLibrary.length ; i++){
-    bookCard.setAttribute('data-index',i);
-  }
+    bookCard.setAttribute('data-index',i);         
+  } /** sets attribute upon creation - stays static when removing elements( not updating with index of array or Dom elements)  */                                                                                                                     
   
   let titleDiv = document.createElement('div');
   bookCard.appendChild(titleDiv).className = 'bookInfo';
@@ -71,48 +72,20 @@ function clearFields(){
     let readStatus = document.getElementById('readStatus').value = Selection[1];
 }
 
-
-  function removeBookFromLibrary(event){
-    if (event.target.className === "closeBook trash"){
-      const index = event.target.parentElement.getAttribute('data-index');
-      console.log(event.target.parentElement.getAttribute('data-index'));
-      document.querySelectorAll('[data-index]')[index].remove();
-      myLibrary.splice(index, 1);
-      
-
-
-      let card = document.querySelectorAll('.library .card');
-  
-      card.forEach(el =>{
-      
-      for ( let i = 0 ; i < myLibrary.length ; i++){
-        el = document.querySelectorAll('.card')[i];
-        console.log(document.querySelectorAll('.card')[i]);
-        el.setAttribute('data-index', i );
-        console.log(document.querySelectorAll('[data-index]'));
-      }
-    })
-    
-
-
-
-  
-  }}
+function removeBookFromLibrary(event){
+  if (event.target.className === "closeBook trash"){
+    const index = event.target.parentElement.getAttribute('data-index'); /**takes the "static" atribute of the books */
+    document.querySelectorAll('[data-index]')[index].remove(); /** remove book */
+    myLibrary.splice(index, 1); /** remove object from array */                            
+ 
+  for (let i = 0 ; i < myLibrary.length ; i++){
+    document.querySelectorAll('[data-index]')[i].setAttribute('data-index', i ); /** updates set Attribute  */
+    }
+}}
 
 document.addEventListener('click', (event) => {
   removeBookFromLibrary(event);
 });
-
-
-    
-    
- 
-  
-  
-
-  
-  
-
 
 /********** Modal ***********/
 
