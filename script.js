@@ -8,10 +8,13 @@ function Book(title,author,pages,readStatus){
 }
 
 Book.prototype.info = function(){
-  const library = document.querySelector('.library');
-  let bookCard = document.createElement('button');
+  const library = document.querySelector('.library'); 
+  let bookCard = document.createElement('button');  /* dom element to be removed */
   library.appendChild(bookCard).className = 'card';
-
+  for ( let i = 0 ; i < myLibrary.length ; i++){
+    bookCard.setAttribute('data-index',i);
+  }
+  
   let titleDiv = document.createElement('div');
   bookCard.appendChild(titleDiv).className = 'bookInfo';
   titleDiv.innerText = `${this.title}`
@@ -29,7 +32,8 @@ Book.prototype.info = function(){
   statusDiv.innerText = `Status: ${this.readStatus}`*/
 
   let closeBook = document.createElement('button');
-  bookCard.appendChild(closeBook).className = 'closeBook';
+  bookCard.appendChild(closeBook);
+  closeBook.classList.add("closeBook" , "trash");
   closeBook.innerText = 'Remove'
 
   let statusBook = document.createElement('button');
@@ -66,6 +70,49 @@ function clearFields(){
     let pages = document.getElementById('pages').value = '';
     let readStatus = document.getElementById('readStatus').value = Selection[1];
 }
+
+
+  function removeBookFromLibrary(event){
+    if (event.target.className === "closeBook trash"){
+      const index = event.target.parentElement.getAttribute('data-index');
+      console.log(event.target.parentElement.getAttribute('data-index'));
+      document.querySelectorAll('[data-index]')[index].remove();
+      myLibrary.splice(index, 1);
+      
+
+
+      let card = document.querySelectorAll('.library .card');
+  
+      card.forEach(el =>{
+      
+      for ( let i = 0 ; i < myLibrary.length ; i++){
+        el = document.querySelectorAll('.card')[i];
+        console.log(document.querySelectorAll('.card')[i]);
+        el.setAttribute('data-index', i );
+        console.log(document.querySelectorAll('[data-index]'));
+      }
+    })
+    
+
+
+
+  
+  }}
+
+document.addEventListener('click', (event) => {
+  removeBookFromLibrary(event);
+});
+
+
+    
+    
+ 
+  
+  
+
+  
+  
+
 
 /********** Modal ***********/
 
