@@ -10,11 +10,7 @@ function Book(title,author,pages,readStatus){
 Book.prototype.info = function(){
   const library = document.querySelector('.library'); 
   let bookCard = document.createElement('button');  /* dom element to be removed */
-  library.appendChild(bookCard).className = 'card';
-  
-  for ( let i = 0 ; i < myLibrary.length ; i++){
-    bookCard.setAttribute('data-index',i);         
-  } /** sets attribute upon creation - stays static when removing elements( not updating with index of array or Dom elements)  */                                                                                                                     
+  library.appendChild(bookCard).className = 'card';                                                                                                                   
   
   let titleDiv = document.createElement('div');
   bookCard.appendChild(titleDiv).className = 'bookInfo';
@@ -27,10 +23,6 @@ Book.prototype.info = function(){
   let pagesDiv = document.createElement('div');
   bookCard.appendChild(pagesDiv).className = 'bookInfo';
   pagesDiv.innerText = `Pages: ${this.pages}`
-  
-  /*let statusDiv = document.createElement('div');
-  bookCard.appendChild(statusDiv).className = 'bookInfo';
-  statusDiv.innerText = `Status: ${this.readStatus}`*/
 
   let closeBook = document.createElement('button');
   bookCard.appendChild(closeBook);
@@ -38,9 +30,26 @@ Book.prototype.info = function(){
   closeBook.innerText = 'Remove'
 
   let statusBook = document.createElement('button');
-  bookCard.appendChild(statusBook).className = 'statusBook';
-  statusBook.innerText = 'Status'
-}
+  bookCard.appendChild(statusBook);
+  statusBook.classList.add("statusBook");
+  statusBook.innerText = this.readStatus;
+  
+  if (this.readStatus === 'read'){
+    statusBook.classList.toggle('read');
+  }
+  else if (this.readStatus === 'unread'){
+    statusBook.classList.toggle('unread');
+  }
+  else{
+    statusBook.classList.toggle('undefined');
+  } 
+
+  for ( let i = 0 ; i < myLibrary.length ; i++){
+    bookCard.setAttribute('data-index',i);
+    statusBook.setAttribute('data-button-index',i);
+  } /** sets attribute upon creation - stays static when removing elements( not updating with index of array or Dom elements)  */  
+    /** sets for card - removing func and status button - change of status func */
+} 
 
 function defaultBook(){
   const book = new Book('The Almanack of Naval Ravikant: A Guide to Wealth and Happiness','Eric Jorgenson','244','read');
@@ -80,11 +89,39 @@ function removeBookFromLibrary(event){
  
   for (let i = 0 ; i < myLibrary.length ; i++){
     document.querySelectorAll('[data-index]')[i].setAttribute('data-index', i ); /** updates set Attribute  */
+    document.querySelectorAll('[data-button-index]')[i].setAttribute('data-button-index', i ); /** sets attr for status button too */
     }
 }}
 
 document.addEventListener('click', (event) => {
   removeBookFromLibrary(event);
+});
+
+function changeBookStatus(event) {
+  const index = event.target.getAttribute('data-button-index');
+  const el = document.querySelectorAll('[data-button-index]')[index];
+ 
+  if (event.target.className === 'statusBook read'){
+    el.classList.remove('read');
+    el.classList.toggle('unread');
+    el.innerText = 'unread';
+  }
+
+  else if (event.target.className === 'statusBook unread' ){
+    el.classList.remove('unread');
+    el.classList.toggle('read');
+    el.innerText = 'read';
+  }
+
+  else if (event.target.className === 'statusBook undefined'){
+    el.classList.remove('undefined');
+    el.classList.toggle('read');
+    el.innerText = 'read';
+  }
+}
+
+document.addEventListener('click', (event) => {
+  changeBookStatus(event);
 });
 
 /********** Modal ***********/
