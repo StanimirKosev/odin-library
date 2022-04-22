@@ -8,14 +8,15 @@ function Book(title,author,pages,readStatus){
 }
 
 Book.prototype.info = function(){
+  
   const library = document.querySelector('.library'); 
   let bookCard = document.createElement('button');  /* dom element to be removed */
   library.appendChild(bookCard).className = 'card';                                                                                                                   
-  
+    
   let titleDiv = document.createElement('div');
   bookCard.appendChild(titleDiv).className = 'bookInfo';
   titleDiv.innerText = `${this.title}`
-  
+    
   let authorDiv = document.createElement('div');
   bookCard.appendChild(authorDiv).className = 'bookInfo';
   authorDiv.innerText = `Author: ${this.author}`
@@ -33,27 +34,29 @@ Book.prototype.info = function(){
   bookCard.appendChild(statusBook);
   statusBook.classList.add("statusBook");
   statusBook.innerText = this.readStatus;
-  
-  if (this.readStatus === 'read'){
-    statusBook.classList.toggle('read');
+    
+  if (this.readStatus === 'Read'){
+    statusBook.classList.toggle('Read');
   }
-  else if (this.readStatus === 'unread'){
-    statusBook.classList.toggle('unread');
+  else if (this.readStatus === 'Unread'){
+    statusBook.classList.toggle('Unread');
   }
   else{
     statusBook.classList.toggle('undefined');
   } 
-
+    
   for ( let i = 0 ; i < myLibrary.length ; i++){
     bookCard.setAttribute('data-index',i);
     statusBook.setAttribute('data-button-index',i);
-  } /** sets attribute upon creation - stays static when removing elements( not updating with index of array or Dom elements)  */  
+    /** sets attribute upon creation - stays static when removing elements( not updating with index of array or Dom elements)  */  
     /** sets for card - removing func and status button - change of status func */
+  }
 } 
 
 function defaultBook(){
-  const book = new Book('The Almanack of Naval Ravikant: A Guide to Wealth and Happiness','Eric Jorgenson','244','read');
+  const book = new Book('The Almanack of Naval Ravikant: A Guide to Wealth and Happiness','Eric Jorgenson','244','Read');
   myLibrary.push(book);
+  
   return book.info(); 
 }
 defaultBook();
@@ -101,22 +104,22 @@ function changeBookStatus(event) {
   const index = event.target.getAttribute('data-button-index');
   const el = document.querySelectorAll('[data-button-index]')[index];
  
-  if (event.target.className === 'statusBook read'){
-    el.classList.remove('read');
-    el.classList.toggle('unread');
-    el.innerText = 'unread';
+  if (event.target.className === 'statusBook Read'){
+    el.classList.remove('Read');
+    el.classList.toggle('Unread');
+    el.innerText = 'Unread';
   }
 
-  else if (event.target.className === 'statusBook unread' ){
-    el.classList.remove('unread');
-    el.classList.toggle('read');
-    el.innerText = 'read';
+  else if (event.target.className === 'statusBook Unread' ){
+    el.classList.remove('Unread');
+    el.classList.toggle('Read');
+    el.innerText = 'Read';
   }
 
   else if (event.target.className === 'statusBook undefined'){
     el.classList.remove('undefined');
-    el.classList.toggle('read');
-    el.innerText = 'read';
+    el.classList.toggle('Read');
+    el.innerText = 'Read';
   }
 }
 

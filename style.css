@@ -145,13 +145,30 @@ img[src*=avatar]{
    font-size: 16px;
    border-radius: 5px;
    border: 1px solid #737373;
-   color: #737373;
+   color: #4d4d4d;
+   font-weight: bold;
 }
 
 .statusBook{
     position: absolute;
     left: 30px;
     bottom: 13px;
+}
+
+.Read{
+    background-color: rgba(0,255,0,0.3);
+}
+
+.Read:hover{
+    background-color: rgba(0,255,0,0.5);
+}
+
+.Unread{
+    background-color: rgba(255,0,0,0.3);
+}
+
+.Unread:hover{
+    background-color: rgba(255,0,0,0.5);
 }
 
 .closeBook{
@@ -174,6 +191,7 @@ img[src*=avatar]{
     box-shadow: 6px 5px 4px -3px #737373;
 }
 
+.undefined:hover,
 .closeBook:hover,
 button[type*=button]:hover,
 .addBook:hover{
