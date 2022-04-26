@@ -1,3 +1,12 @@
 # odin-library
-The Odin Project - Full Stack JavaScript Path - JavaScript - Project Nº8;
+The Odin Project Curriculum - Full Stack JavaScript Path - JavaScript Section - Project Nº8
+
 Goal: Build a library app
+
+## Skills learned:
+- Objects and Object Constructors
+- Classes
+- Data Attributes
+- Modal window
+
+[Link](https://stanimirkosev.github.io/odin-library/)

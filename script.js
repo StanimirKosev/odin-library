@@ -1,70 +1,71 @@
 let myLibrary = [];
 
-function Book(title,author,pages,readStatus){
+class Book {  // class declaration
+  constructor(title,author,pages,readStatus){ // class constructor
   this.title = title
   this.author = author
   this.pages = pages
   this.readStatus = readStatus
+  }
+
+  makeObj(){    // class method
+    const library = document.querySelector('.library'); 
+    let bookCard = document.createElement('button');  /* dom element to be removed */
+    library.appendChild(bookCard).className = 'card';                                                                                                                   
+      
+    let titleDiv = document.createElement('div');
+    bookCard.appendChild(titleDiv).className = 'bookInfo';
+    titleDiv.innerText = `${this.title}`
+      
+    let authorDiv = document.createElement('div');
+    bookCard.appendChild(authorDiv).className = 'bookInfo';
+    authorDiv.innerText = `Author: ${this.author}`
+
+    let pagesDiv = document.createElement('div');
+    bookCard.appendChild(pagesDiv).className = 'bookInfo';
+    pagesDiv.innerText = `Pages: ${this.pages}`
+
+    let closeBook = document.createElement('button');
+    bookCard.appendChild(closeBook);
+    closeBook.classList.add("closeBook" , "trash");
+    closeBook.innerText = 'Remove'
+
+    let statusBook = document.createElement('button');
+    bookCard.appendChild(statusBook);
+    statusBook.classList.add("statusBook");
+    statusBook.innerText = this.readStatus;
+      
+    if (this.readStatus === 'Read'){
+      statusBook.classList.toggle('Read');
+    }
+    else if (this.readStatus === 'Unread'){
+      statusBook.classList.toggle('Unread');
+    }
+    else{
+      statusBook.classList.toggle('undefined');
+    } 
+      
+    for ( let i = 0 ; i < myLibrary.length ; i++){
+      bookCard.setAttribute('data-index',i);
+      statusBook.setAttribute('data-button-index',i);
+      /** sets attribute upon creation - stays static when removing elements( not updating with index of array or Dom elements)  */  
+      /** sets for card - removing func and status button - change of status func */
+    }
+  }
 }
 
-Book.prototype.info = function(){
-  
-  const library = document.querySelector('.library'); 
-  let bookCard = document.createElement('button');  /* dom element to be removed */
-  library.appendChild(bookCard).className = 'card';                                                                                                                   
-    
-  let titleDiv = document.createElement('div');
-  bookCard.appendChild(titleDiv).className = 'bookInfo';
-  titleDiv.innerText = `${this.title}`
-    
-  let authorDiv = document.createElement('div');
-  bookCard.appendChild(authorDiv).className = 'bookInfo';
-  authorDiv.innerText = `Author: ${this.author}`
-
-  let pagesDiv = document.createElement('div');
-  bookCard.appendChild(pagesDiv).className = 'bookInfo';
-  pagesDiv.innerText = `Pages: ${this.pages}`
-
-  let closeBook = document.createElement('button');
-  bookCard.appendChild(closeBook);
-  closeBook.classList.add("closeBook" , "trash");
-  closeBook.innerText = 'Remove'
-
-  let statusBook = document.createElement('button');
-  bookCard.appendChild(statusBook);
-  statusBook.classList.add("statusBook");
-  statusBook.innerText = this.readStatus;
-    
-  if (this.readStatus === 'Read'){
-    statusBook.classList.toggle('Read');
-  }
-  else if (this.readStatus === 'Unread'){
-    statusBook.classList.toggle('Unread');
-  }
-  else{
-    statusBook.classList.toggle('undefined');
-  } 
-    
-  for ( let i = 0 ; i < myLibrary.length ; i++){
-    bookCard.setAttribute('data-index',i);
-    statusBook.setAttribute('data-button-index',i);
-    /** sets attribute upon creation - stays static when removing elements( not updating with index of array or Dom elements)  */  
-    /** sets for card - removing func and status button - change of status func */
-  }
-} 
 
 function defaultBook(){
   const book = new Book('The Almanack of Naval Ravikant: A Guide to Wealth and Happiness','Eric Jorgenson','244','Read');
   myLibrary.push(book);
-  
-  return book.info(); 
+  return book.makeObj(); // create new obj
 }
 defaultBook();
 
 function addBookToLibrary(title,author,pages,readStatus){ 
   const book = new Book(title,author,pages,readStatus); 
   myLibrary.push(book);
-  return book.info(); 
+  return book.makeObj(); // create new obj
 }
 
 document.querySelector('.submitButton').onclick = function(){
