@@ -144,7 +144,7 @@ body {
     padding: 5px 70px;
     background-color: #e9e5cd;
     color: #4d4d4d;
-    font-size: 18px;
+    font-size: 19px;
     position: sticky;
     top: 0;
     box-shadow: 0 6px 3px -6px #737373;
@@ -161,11 +161,66 @@ span {
     font-weight: bold;
     color: #4d4d4d;
 }
-
+.browse,
 a[href*='stanimirkosev'] {
     color: #4d4d4d;
     text-decoration: none;
     margin-right: 20px;
+}
+
+.browse {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+}
+
+.browse:hover,
+.dropdown.active > .browse,
+a[href*='stanimirkosev']:hover {
+    color: #141216;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.1rem);
+    background-color: #e9e5cd;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    display: grid;
+    grid-template-columns: repeat(2, 100px);
+    gap: 0.7rem;
+}
+
+.dropdown.active > .browse + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdown-heading {
+    grid-column: 1 / -1;
+    color: #141216;
+}
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+a[href*='#'] {
+    text-decoration: none;
+    color: #4d4d4d;
 }
 
 input {

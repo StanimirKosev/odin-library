@@ -185,6 +185,22 @@ document.addEventListener('click', (event) => {
     changeBookStatus(event)
 })
 
+document.addEventListener('click', (e) => {
+    const isDropdownButton = e.target.matches('[data-dropdown-button]')
+    if (!isDropdownButton && e.target.closest('[data-dropdown]') != null) return
+
+    let currentDropdown
+    if (isDropdownButton) {
+        currentDropdown = e.target.closest('[data-dropdown]')
+        currentDropdown.classList.toggle('active')
+    }
+
+    document.querySelectorAll('[data-dropdown].active').forEach((dropdown) => {
+        if (dropdown === currentDropdown) return
+        dropdown.classList.remove('active')
+    })
+})
+
 /** Prevents chrome pop up window when refreshing, caused by the default book displayed */
 if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href)
