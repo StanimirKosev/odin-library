@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -61,4 +62,116 @@
     </div>
     <div id="overlay"></div>
   </body>
+=======
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Library</title>
+    </head>
+    <body>
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css" />
+
+        <!------ Header ------>
+
+        <div class="header">
+            <div class="logo">best<span>reads</span></div>
+            <div>
+                <a href="https://stanimirkosev.github.io/odin-library/">Home</a>
+            </div>
+            <div>
+                <a href="https://stanimirkosev.github.io/odin-library/"
+                    >My Books</a
+                >
+            </div>
+            <div class="dropdown" data-dropdown>
+                <button class="browse" data-dropdown-button>Browse</button>
+                <div class="dropdown-menu">
+                    <div class="dropdown-heading">Favourite Genres</div>
+                    <div class="dropdown-links">
+                        <a href="#" class="link">Bitcoin</a>
+                        <a href="#" class="link">Investing</a>
+                        <a href="#" class="link">Business</a>
+                        <a href="#" class="link">Science</a>
+                    </div>
+                    <div class="dropdown-links">
+                        <a href="#" class="link">Psychology</a>
+                        <a href="#" class="link">Spirituality</a>
+                        <a href="#" class="link">Philosophy</a>
+                        <a href="#" class="link">Self Help</a>
+                    </div>
+                </div>
+            </div>
+            <form action="" method="">
+                <label for="search"></label>
+                <input type="search" id="search" placeholder="Search Books" />
+            </form>
+            <img src="icons/bell.svg" alt="bell-icon" />
+            <img src="icons/msg.svg" alt="message-icon" />
+            <img src="icons/avatar.svg" alt="avatar-icon" />
+        </div>
+
+        <!------ Main Body ------>
+        <div class="library"></div>
+
+        <button data-modal-target="#modal" class="addBook">&#43;</button>
+        <!-- data attribute for JS , class for CSS -->
+        <div class="modal" id="modal">
+            <div class="headerModal">
+                <div class="titleModal">Add New Book</div>
+                <button data-close-button class="close-button">&times;</button>
+                <!-- data attribute for JS , class for CSS -->
+            </div>
+            <form action="" method="post" id="form" onsubmit="return false">
+                <fieldset>
+                    <label for="title">*Book title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        required
+                        placeholder="Title"
+                        minlength="1"
+                    />
+                    <label for="author">*Book author</label>
+                    <input
+                        type="text"
+                        id="author"
+                        name="author"
+                        required
+                        placeholder="Author"
+                        minlength="1"
+                    />
+                    <label for="pages">*Number of pages</label>
+                    <input
+                        type="number"
+                        id="pages"
+                        name="pages"
+                        required
+                        placeholder="Number of pages"
+                        min="1"
+                    />
+                    <label for="readStatus">Book status</label>
+                    <select id="readStatus" required>
+                        <option value="" disabled selected>
+                            Did you read this book?
+                        </option>
+                        <option value="Read">Read</option>
+                        <option value="Unread">Unread</option>
+                    </select>
+                    <button class="submitButton">Add</button>
+                    <button
+                        type="button"
+                        class="clearButton"
+                        onclick="clearFields()"
+                    >
+                        Clear
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+        <div id="overlay"></div>
+    </body>
+>>>>>>> revisit2
 </html>
