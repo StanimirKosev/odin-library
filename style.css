@@ -389,7 +389,8 @@ form[method*='post'] {
 select,
 .clearButton,
 .submitButton,
-input[type*='text'] {
+input[type*='text'],
+input[type*='number'] {
     border: 1px solid #737373;
     border-radius: 3px;
     padding: 10px;

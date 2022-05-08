@@ -19,6 +19,7 @@
                 "enforceForRenamedProperties": false
             }
         ],
-        "no-undef": "off"
+        "no-undef": "off",
+        "no-use-before-define": "off"
     }
 }

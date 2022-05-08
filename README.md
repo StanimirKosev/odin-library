@@ -8,7 +8,7 @@ Goal: Build a library app
 
 -   Objects and Object Constructors , Classes
 -   Data Attributes
--   Modal window
+-   Modal window , Drop-down Menu
 -   ESLint , Prettier
 
 [Link](https://stanimirkosev.github.io/odin-library/)

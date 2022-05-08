@@ -99,6 +99,7 @@ function closeModal(modal) {
     if (modal == null) return
     modal.classList.remove('active')
     overlay.classList.remove('active')
+    clearFields()
 }
 
 closeModalButtons.forEach((button) => {
@@ -122,15 +123,19 @@ function clearFields() {
     document.getElementById('readStatus').value = Selection[1]
 }
 
+const form = document.getElementById('form')
+const modal = document.getElementById('modal')
+
 const submitButton = document.querySelector('.submitButton')
 submitButton.addEventListener('click', () => {
-    const title = document.getElementById('title').value
-    const author = document.getElementById('author').value
-    const pages = document.getElementById('pages').value
-    const readStatus = document.getElementById('readStatus').value
-    addBookToLibrary(title, author, pages, readStatus)
-    clearFields()
-    closeModal(modal)
+    if (form.checkValidity()) {
+        const title = document.getElementById('title').value
+        const author = document.getElementById('author').value
+        const pages = document.getElementById('pages').value
+        const readStatus = document.getElementById('readStatus').value
+        addBookToLibrary(title, author, pages, readStatus)
+        closeModal(modal)
+    }
 })
 
 function removeBookFromLibrary(event) {
@@ -185,6 +190,7 @@ document.addEventListener('click', (event) => {
     changeBookStatus(event)
 })
 
+/** Drop-down menu  */
 document.addEventListener('click', (e) => {
     const isDropdownButton = e.target.matches('[data-dropdown-button]')
     if (!isDropdownButton && e.target.closest('[data-dropdown]') != null) return
@@ -205,5 +211,3 @@ document.addEventListener('click', (e) => {
 if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href)
 }
-
-/** JS Validations - not yet */
